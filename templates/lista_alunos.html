@@ -1,0 +1,40 @@
+{% extends "template.html" %}
+{% block conteudospecial %}
+<div class="tabela-wrap">
+<table class="table table-sm table-striped table-responsive content-table display responsive nowrap" id="tabela-alunos">
+    <thead class="thead-default">
+        <tr>
+            <th>RA</th>
+            <th>Nome</th>
+            <th>Reservas</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for aluno in alunos %}
+        <tr>
+            <td class="align-middle">{{ aluno.ra }}</td>
+            <td class="align-middle nomes"><a href="{{ url_for('historico_aluno', ra=aluno.ra) }}">{{ aluno.nome }}</a></td>
+            {% if aluno.id_livro != 0 %}
+            <td class="align-middle">Data limite: {{ get_datas(aluno.ra) }}<br>Código do livro: {{ aluno.id_livro_quantidade }}</td>
+            <td class="align-middle">
+                {% if aluno.pode_reservar %}
+                <a href="{{ url_for('confirmar_reserva', ra=aluno.ra) }}">Confirmar Reserva</a>
+                {% elif not aluno.pode_reservar %}
+                <a href="{{ url_for('confirmar_retorno', ra=aluno.ra) }}">Confirmar Retorno</a>
+                {% endif %}
+            {% else %}
+            <td class="align-middle"><i class="fa-solid fa-ban" style="color: #e90c0c;"></i>Sem reservas</td>
+            <td>
+            {% endif %}
+                <a href="{{ url_for('apagar_aluno', id_bd=aluno.id_bd) }}"><i class="fa-solid fa-trash" style="color: #d1001f;"></i></a>
+                <a href="{{ url_for('editar_aluno', id_bd=aluno.id_bd) }}"><i class="fa-solid fa-square-pen" style="color: #213454;"></i></a>
+            </td>
+        </tr>
+
+        {% endfor %}
+    </tbody>
+</table>
+    </div>
+{% endblock %}
+

@@ -1,0 +1,126 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;700&family=Poppins:wght@200;600&family=Prompt:wght@100;400;800&family=Quicksand:wght@400;600&family=Source+Sans+3&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@1,600&display=swap');
+
+@import url("cards.css");
+@import url("menu.css");
+@import url("tabela.css");
+@import url("login-cadastro.css");
+@import url("rodape.css");
+@import url("detalhes.css");
+@import url("novo-editar.css");
+@import url("home.css");
+
+:root {
+  --cor-header: #2c3333;
+  --cor-loader: #ac1c14;
+  --cor-fundo: #fffbeb;
+  --cor-link-menu: #c6c6c6;
+  --cor-tabela: #ac1c14;
+  --cor-texto-tabela: #000;
+  --cor-tabela-hover: #d6d6d6;
+  --cor-linha-menu: #ac1c14;
+  --cor-botao: #ac1c14;
+  --cor-botao-hover: #fff;
+  --cor-cabecalho-texto: #fff;
+  --cor-linha-formulario: #ac1c14;
+  --cor-texto-formulario: #ac1c14;
+  --cor-botao-envio: #ac1c14;
+  --cor-botao-envio-hover: #d92e25;
+  --cor-botao-novo-livro: #4caf50;
+  --cor-botao-novo-hover: #209c25;
+  --cor-botao-exibicao: #46bcdd;
+  --cor-botao-exibicao-hover: #00bcd4;
+  --cor-botao-limpar: #f44336;
+  --cor-botao-limpar-hover: #e63022;
+  --cor-detalhes: #ac1c14;
+  --cor-mudar-capa: #ac1c14;
+  --cor-codigo: #ac1c14;
+  --cor-titulo-home: #ac1c14;
+  --cor-faixa-mapa: #1c3333;
+  --cor-hover-titulo: #c6c6c6;
+  --cor-borda-mapa: #ac1c14;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+/* Elementos de Neutros */
+
+* {
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+}
+
+p {
+  margin: 0;
+}
+
+body {
+  background-color: var(--cor-fundo);
+  margin: 0;
+  padding: 0;
+}
+
+.alert {
+  z-index: -1;
+}
+
+.loader-wrapper {
+  align-items: center;
+  background-color: var(--cor-fundo);
+  display: flex;
+  justify-content: center;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  z-index: 3;
+}
+
+.loader {
+  border: 16px solid var(--cor-loader);
+  border-top: 16px solid var(--cor-fundo);
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.main-title {
+  text-align: center;
+}
+
+.container {
+  width: 100vw;
+}
+
+.mensagem {
+  margin: 0 5vw;
+}
+
+#messages {
+  z-index: 2;
+  position: relative;
+}

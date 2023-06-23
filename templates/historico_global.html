@@ -1,0 +1,27 @@
+{% extends "template.html" %}
+{% block conteudospecial %}
+<div class="tabela-wrap">
+<table class="table table-sm table-striped table-responsive content-table display responsive nowrap content-table tabela-historico">
+    <thead class="thead-default">
+        <tr>
+            <th>RA</th>
+            <th>Livro reservado</th>
+            <th>Data de reserva</th>
+            <th>Data da devolução</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for campo in historico %}
+        {% if campo.data_retorno != None %}
+        <tr>
+            <td>{{ campo.ra }}</td>
+            <td>{{ campo.id }}</td>
+            <td>{{ campo.data_saida.strftime('%d/%m/%Y') }}</td>
+            <td>{{ campo.data_retorno.strftime('%d/%m/%Y') }}</td>
+        </tr>
+        {% endif %}
+        {% endfor %}
+    </tbody>
+</table>
+</div>
+{% endblock %}
